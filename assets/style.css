@@ -4,13 +4,32 @@ h1 {
      line-height: 90px;
      text-align: center;
      background-color: black;
-     color: blueviolet;
+     color: rgb(43, 153, 226);
 }
 
 h2 {
      padding: 25px 25px 25px 25px;
      line-height: 80px;
      text-align: center;
-     background-color: blueviolet;
+     background-color: rgb(43, 153, 226);
      color: black;
+}
+
+.question-box {
+     text-align: center;
+}
+
+.answer-choices {
+     width: 300px;
+     border: 15px seashell;
+     padding: 50px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     box-shadow: 10px 10px salmon;
+     border-radius: 25px;
+     text-align: center;
+     font-size: 25px;
+     background-color: rgb(43, 153, 226);
+     color: blue;
 }
