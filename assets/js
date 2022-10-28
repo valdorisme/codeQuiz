@@ -2,7 +2,8 @@ var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
-// var wordBlank = document.querySelector(".word-blanks");
+var rightAnswer = document.querySelector(".right");
+var wrongAnswer = document.querySelector(".wrong");
 
 var winCounter = 0;
 var loseCounter = 0;
@@ -23,14 +24,14 @@ function startGame() {
 }
 
 function winGame() {
-    // wordBlank.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
+    rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
     winCounter++;
     startButton.disabled = false;
     setWins()
 }
 
 function loseGame() {
-    wordBlank.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
+    wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
     loseCounter++;
     startButton.disabled = false;
     setLosses()
