@@ -11,6 +11,50 @@ var isWin = false;
 var timer;
 var timerCount;
 
+var quizContent = [
+    {
+    question: "What does the abbreviation 'qd' stand for?",
+    options: {
+        a: "Every other day",
+        b: "Everyday"
+    }
+    answer: "b"
+    }
+    {
+    question: "What does the abbreviation 'tid' stand for?"
+    options: {
+        a: "Three times per day",
+        b: "Four times per day",
+    }
+    answer: "a"
+    }
+
+    {
+    question: "What does the abbreviation 'ac' stand for?",
+    options: {
+        a: "Before meals",
+        b: "After meals",
+    }
+    answer: "a"
+    }
+    {
+    question: "What does the abbreviation 'qod' stand for?",
+    options: {
+        a: "Everyday",
+        b: "Every other day",
+    }
+    answer: "b"
+    }
+    {
+    question: "What does the abbreviation 'MSO4' stand for?",
+    options: {
+        a: "Magnesium Sulfate",
+        b: "Morphine Sulfate",
+    }
+    answer: "b"   
+    }
+]
+
 function init() {
     getWins();
     getLosses();
@@ -65,17 +109,17 @@ function setLosses() {
     localStorage.setItem("loseCount", loseCounter);
 }
 
-function getWins() {
-    var storedWins = localStorage.getItem("winCount");
+// function getWins() {
+//     var storedWins = localStorage.getItem("winCount");
     
-    if (storedWins === null) {
-        winCounter = 0;
-    } else {
-        winCounter = storedWins;
-    }
+//     if (storedWins === null) {
+//         winCounter = 0;
+//     } else {
+//         winCounter = storedWins;
+//     }
 
-    win.textContent = winCounter
-}
+//     win.textContent = winCounter
+// }
 
 function getLosses() {
     var storedLosses = localStorage.getItem("loseCount");
