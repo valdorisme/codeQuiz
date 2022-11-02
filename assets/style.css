@@ -5,7 +5,7 @@ body {
 
 /*Start button styling*/
 .start-button {
-     padding: 25px 25px 25px 25px;
+     padding: 25px 50px;
      font-size: 50px;
      background-color: rgb(43, 153, 226);
      color: white;
@@ -13,20 +13,76 @@ body {
      font-weight: 500;
      text-align: center;
      cursor: pointer;
-
-     
+     margin: 10% 50% 10% 40%;
+          
 }
 
+/* Button color change when hovered */
+.start-button:hover {
+     background-color: greenyellow;
+}
+
+/* Adding stlying to instructions */
+.instructions {
+     display: none;
+     position: absolute;
+     top: 800px;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 540px;
+     background: whitesmoke;
+     border-radius: 5px;
+
+}
+
+/* Setting different font sizes to instruction title and content */
 .instruction-title {
      text-align: center;
-     color: aliceblue;
+     color: blue;
      font-size: 50px;
 }
 
 .instruction-list {
      text-align: center;
-     color: aliceblue;
+     color: blue;
      font-size: 25px;
+}
+
+/* Placing emphasis on time alloted for each question */
+.instructions .instruction-list .info span {
+     font-weight: 600;
+     color: red;
+}
+
+/* Positioning both quit and restart buttons */
+.instructions .buttons {
+     height: 60px;
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     padding: 0 35px;
+}
+
+/* Separating quit and restart buttons, and styling */
+.instructions .buttons button {
+     margin: 0 5px;
+     height: 40px;
+     width: 100px;
+     border: 2px ridge blue;
+     background: rgb(43, 153, 226);
+     color: azure;
+     font-size: 16px;
+     border-radius: 10px;
+}
+
+.instructions .buttons button.quit:hover {
+     background-color: red;
+     cursor: pointer;
+}
+
+.instructions .buttons button.restart:hover {
+     background-color: green;
+     cursor: pointer;
 }
 
 h1 {
@@ -81,7 +137,7 @@ h2 {
      font-size: 25px;
      background-color: rgb(43, 153, 226);
      color: blue;   */
-}
+
 
 h4 {
      padding: 25px 25px 25px 25px;
