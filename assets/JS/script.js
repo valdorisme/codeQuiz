@@ -1,9 +1,9 @@
+var startButton = document.querySelector(".start-button");
+
 var win = document.querySelector(".win");
 var lose = document.querySelector(".lose");
 var timerElement = document.querySelector(".timer-count");
-var startButton = document.querySelector(".start-button");
-var rightAnswer = document.querySelector(".right");
-var wrongAnswer = document.querySelector(".wrong");
+
 
 var winCounter = 0;
 var loseCounter = 0;
@@ -13,47 +13,55 @@ var timerCount;
 
 var quizContent = [
     {
-    question: "What does the abbreviation 'qd' stand for?",
-    options: {
-        a: "Every other day",
-        b: "Everyday"
-    }
-    answer: "b"
-    }
+        question: "What does the abbreviation 'qd' stand for?",
+        options: {
+            a: "Every other day",
+            b: "Everyday",
+        },
+        answer: "b"
+    },
     {
-    question: "What does the abbreviation 'tid' stand for?"
-    options: {
-        a: "Three times per day",
-        b: "Four times per day",
-    }
-    answer: "a"
-    }
+        question: "What does the abbreviation 'tid' stand for?",
+        options: {
+            a: "Three times per day",
+            b: "Four times per day",
+        },
+        answer: "a"
+    },
 
     {
-    question: "What does the abbreviation 'ac' stand for?",
-    options: {
-        a: "Before meals",
-        b: "After meals",
-    }
-    answer: "a"
-    }
+        question: "What does the abbreviation 'ac' stand for?",
+        options: {
+            a: "Before meals",
+            b: "After meals",
+        },
+        answer: "a"
+    },
     {
-    question: "What does the abbreviation 'qod' stand for?",
-    options: {
-        a: "Everyday",
-        b: "Every other day",
-    }
-    answer: "b"
-    }
+        question: "What does the abbreviation 'qod' stand for?",
+        options: {
+            a: "Everyday",
+            b: "Every other day",
+        },
+        answer: "b"
+    },
     {
-    question: "What does the abbreviation 'MSO4' stand for?",
-    options: {
-        a: "Magnesium Sulfate",
-        b: "Morphine Sulfate",
-    }
-    answer: "b"   
+        question: "What does the abbreviation 'MSO4' stand for?",
+        options: {
+            a: "Magnesium Sulfate",
+            b: "Morphine Sulfate",
+        },
+        answer: "b"   
     }
 ]
+
+var lastQuestionIndex = quizContent.length-1;
+var runningQuestionIndex = 0;
+
+function renderQuestion() {
+    var q = questions[runningQuestionIndex];
+
+}
 
 function init() {
     getWins();
