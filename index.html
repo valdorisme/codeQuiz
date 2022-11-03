@@ -11,11 +11,11 @@
 
 <body>
     <!--Heading-->
-    <header id="quiz">
+    <!-- <header id="quiz">
         <h1>Medical Abbreviations of Ancient Times</h1>
         <h2>How ancient are you?</h2>
         
-    </header>
+    </header> -->
 
     <!--Instructions-->        
     <div class="instructions">
@@ -43,11 +43,61 @@
         <button class="start-button">START</button>
     </div>
 
-    <section id="questions">
+<!-- Quiz Box -->
+<div class="quiz-box">
+    <header>
+        <h1>Medical Abbreviations of Ancient Times</h1>
+        <div class="timer">
+            <div class="time-text">Time Left</div>
+            <div class="timer-sec">10</div>
+        </div>
+    </header>
+    <section>
+        <div class="que-text">
+            <span>What does the abbreviation 'qd' stand for?</span>
+        </div>
+        <div class="option-list">
+            <div class="option">
+                <span>Every other day</span>
+                <div class="icon sad"><img src="assets/Image/sad.jpg" alt="Sad emoji indicating wrong answer"></div>
+            </div>
+            <div class="option">
+                <span>Every day</span>
+                <div class="icon excited"><img src="assets/Image/excited.jpg" alt="Excited person indicating correct answer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Box Footer -->
+    <footer>
+        <!-- <div class="total-que">
+            <span><p>2</p>of<p>5</p>Questions</span>
+        </div> -->
+        <button class="next-btn">Next Question</button>
+    </footer>
+</div>
+
+
+<!-- Result Box -->
+<div class="result-box">
+    <div class="icon"><img src="assets/Image/fireworks.jpg" alt="Fireworks"></div>
+    <div class="result-text">Congratulations! You've completed the quiz!</div>
+    <div class="score-text">You've scored</div>
+    <div class="buttons">
+        <button class="restart">Play Again</button>
+        <button class="quit">Exit</button>
+    </div>
+    
+</div>
+
+
+
+
+    <!-- <section id="questions">
         <section id="answers">
 
         </section>
-    </section>
+    </section> -->
     <script src="assets/JS/script.js"></script>
 </body>
 </html>
