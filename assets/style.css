@@ -158,9 +158,16 @@ body {
      background: white;
 }
 
-#quiz-box section .que-text {
+#quiz-box section .question-container {
      font-size: 25px;
      font-weight: 600;
+}
+
+
+#question {
+     font-size: 40px;
+     font-weight: 600;
+     text-align: center;
 }
 
 #quiz-box section .option-list {
@@ -172,7 +179,8 @@ body {
      display: none;
 }
 
-section .option-list .option {
+
+section .option-list #choices .btn {
      background: lightseagreen;
      font-size: 30px;
      border: 1px solid blue;
@@ -184,23 +192,24 @@ section .option-list .option {
      justify-content: space-between;
      cursor: pointer;
      transition: all 0.3s ease;
+     
 }
 
-section .option-list .option:hover {
+section .option-list #choices .btn:hover {
      color: white;
      background: blue;
      border-color: black;
 }
 
-section .option-list .option:last-child {
+section .option-list #choices:last-child {
      margin-bottom: 0px;
 }
 
-.option-list .option .icon.excited {
+.section .icon .excited {
      border: 5px solid greenyellow;
 }
 
-.option-list .option .icon.sad {
+section .icon .sad {
      border: 5px solid red;
 }
 
@@ -323,7 +332,7 @@ footer .next-btn {
      cursor: pointer;
 }
 
-h1 {
+/* h1 {
      padding: 50px 50px 50px 50px;
      font-size: 70px;
      line-height: 70px;
@@ -339,7 +348,7 @@ h2 {
      text-align: center;
      background-color: rgb(43, 153, 226);
      color: black;
-}
+} */
 
 .card-results {
      position: absolute;

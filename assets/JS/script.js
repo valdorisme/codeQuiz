@@ -1,5 +1,9 @@
 const startButton = document.getElementById('start-button');
-const questionEl = document.getElementById('quiz-box')
+const questionContainerEl = document.getElementById('quiz-box')
+const questionEl = document.getElementById('question')
+const choicesButtonEl = document.getElementById('choices')
+
+// const shuffledQuestions, currentQuestion
 
 var win = document.querySelector(".excited");
 var lose = document.querySelector(".sad");
@@ -66,7 +70,9 @@ startButton.addEventListener('click', startGame)
 function startGame() {
     console.log('begin')
     startButton.style.display = "none"
-    questionEl.classList.remove('hide')
+    shuffledQuestions = quizContent.sort(() => Math.random() - .5)
+    currentQuestion = 0
+    questionContainerEl.classList.remove('hide')
     nextQuestion()
 }
 
@@ -74,7 +80,20 @@ function startGame() {
 
 
 function nextQuestion() {
-    
+    showQuestion(shuffledQuestions[currentQuestion])
+}
+
+function showQuestion(question) {
+    questionEl.innerText = question.question
+    question.choices.forEach(choices => {
+        const button = document.createElement('button')
+        button.innerText = choices.textContent
+        button.classList.add('btn')
+        if(answer) {
+            button.dataset.correct = answer
+        }
+        button.addEventListener("click", selectAnswer)
+    })
 }
 
 
