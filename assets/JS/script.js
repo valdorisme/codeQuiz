@@ -1,9 +1,12 @@
-var startButton = document.querySelector(".start-button");
+const startButton = document.getElementById('start-button');
+const questionEl = document.getElementById('quiz-box')
 
-var win = document.querySelector(".win");
-var lose = document.querySelector(".lose");
-var timerElement = document.querySelector(".timer-count");
+var win = document.querySelector(".excited");
+var lose = document.querySelector(".sad");
+var timerElement = document.querySelector(".timer-sec");
 
+// var lastQuestionIndex = quizContent.length-1;
+// var runningQuestionIndex = 0;
 
 var winCounter = 0;
 var loseCounter = 0;
@@ -14,7 +17,7 @@ var timerCount;
 var quizContent = [
     {
         question: "What does the abbreviation 'qd' stand for?",
-        options: {
+        choices: {
             a: "Every other day",
             b: "Everyday",
         },
@@ -22,7 +25,7 @@ var quizContent = [
     },
     {
         question: "What does the abbreviation 'tid' stand for?",
-        options: {
+        choices: {
             a: "Three times per day",
             b: "Four times per day",
         },
@@ -31,7 +34,7 @@ var quizContent = [
 
     {
         question: "What does the abbreviation 'ac' stand for?",
-        options: {
+        choices: {
             a: "Before meals",
             b: "After meals",
         },
@@ -39,7 +42,7 @@ var quizContent = [
     },
     {
         question: "What does the abbreviation 'qod' stand for?",
-        options: {
+        choices: {
             a: "Everyday",
             b: "Every other day",
         },
@@ -47,7 +50,7 @@ var quizContent = [
     },
     {
         question: "What does the abbreviation 'MSO4' stand for?",
-        options: {
+        choices: {
             a: "Magnesium Sulfate",
             b: "Morphine Sulfate",
         },
@@ -55,25 +58,45 @@ var quizContent = [
     }
 ]
 
-var lastQuestionIndex = quizContent.length-1;
-var runningQuestionIndex = 0;
-
-function renderQuestion() {
-    var q = questions[runningQuestionIndex];
-
-}
-
-function init() {
-    getWins();
-    getLosses();
-}
+startButton.addEventListener('click', startGame)
 
 function startGame() {
-    isWin = false;
-    timerCount = 10;
-    startButton.disabled =true;
-    startTimer()
+    console.log('begin')
+    startButton.style.display = "none"
+    questionEl.classList.remove('hide')
 }
+
+// startGame()
+
+
+function nextQuestion() {
+    
+4}
+
+
+function selectAnswer() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function init() {
+//     getWins();
+//     getLosses();
+// }
+
 
 function winGame() {
     rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
@@ -129,30 +152,13 @@ function setLosses() {
 //     win.textContent = winCounter
 // }
 
-function getLosses() {
-    var storedLosses = localStorage.getItem("loseCount");
+// function getLosses() {
+//     var storedLosses = localStorage.getItem("loseCount");
     
-    if (storedLosses === null) {
-        loseCounter = 0;
-    } else {
-        loseCounter = storedLosses;
-    }
-    lose.textContent = loseCounter;
-}
-
-startButton.addEventListener("click", startGame);
-
-init();
-
-//Button added to restart the game.
-var resetButton = document.querySelector(".reset-button");
-
-function resetGame() {
-    winCounter = 0;
-    loseCounter = 0;
-
-    setWins()
-    setLosses()
-}
-
-resetButton.addEventListener("click", resetGame);
+//     if (storedLosses === null) {
+//         loseCounter = 0;
+//     } else {
+//         loseCounter = storedLosses;
+//     }
+//     lose.textContent = loseCounter;
+// }

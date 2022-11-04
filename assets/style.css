@@ -4,8 +4,8 @@ body {
 }
 
 /*Start button styling*/
-.start-button {
-     padding: 25px 50px;
+#start-button {
+     /* display: none; */
      font-size: 50px;
      background-color: rgb(43, 153, 226);
      color: white;
@@ -13,12 +13,18 @@ body {
      font-weight: 500;
      text-align: center;
      cursor: pointer;
-     margin: 10% 50% 10% 40%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0;
+     height: 25vh;
+     width: 25vw;
           
 }
 
 /* Button color change when hovered */
-.start-button:hover {
+#start-button:hover {
      background-color: greenyellow;
 }
 
@@ -86,22 +92,22 @@ body {
 }
 
 /* Styling Quiz Box */
-.quiz-box {
-     display: none;
+#quiz-box {
+     /* display: none; */
      width: 550px;
      background: white;
-     border-radius: 10px;
      position: absolute;
-     top: 800px;
+     top: 350px;
      left: 50%;
      transform: translate(-50%, -50%);
      width: 540px;
      background: whitesmoke;
      border-radius: 5px;
+     
 }
 
 /* Styling Header of Quiz Box */
-.quiz-box header {
+#quiz-box header {
      position: relative;
      z-index: 99;
      height: 70px;
@@ -114,13 +120,13 @@ body {
      box-shadow: 0px 3px 5px 1px black;
 }
 
-.quiz-box header .title {
+#quiz-box header .title {
      font-size: 20px;
      font-weight: 600;
 }
 
 /* Timer Styling */
-.quiz-box header .timer {
+#quiz-box header .timer {
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -136,7 +142,7 @@ body {
      user-select: none;
 }
 
-.quiz-box header .timer .timer-sec {
+#quiz-box header .timer .timer-sec {
      background: white;
      color: blue;
      height: 30px;
@@ -147,19 +153,23 @@ body {
      border: 1px solid black;
 }
 
-.quiz-box section {
+#quiz-box section {
      padding: 25px 30px 20px 30px;
      background: white;
 }
 
-.quiz-box section .que-text {
+#quiz-box section .que-text {
      font-size: 25px;
      font-weight: 600;
 }
 
-.quiz-box section .option-list {
+#quiz-box section .option-list {
      padding: 20px 0;
      display: block;
+}
+
+.hide {
+     display: none;
 }
 
 section .option-list .option {
@@ -194,7 +204,7 @@ section .option-list .option:last-child {
      border: 5px solid red;
 }
 
-.quiz-box footer {
+#quiz-box footer {
      height: 60px;
      width: 100%;
      padding: 0 30px;
@@ -203,7 +213,7 @@ section .option-list .option:last-child {
      justify-content: space-between;
 }
 
-/* .quiz-box footer .total-que span {
+/* #quiz-box footer .total-que span {
      display: flex;
      user-select: none;
      font-size: 20px;
@@ -235,6 +245,7 @@ footer .next-btn {
 
 /* Styling Result Box */
 .result-box {
+     display: none;
      background: black;
      color: lightseagreen;
      position: absolute;
@@ -242,7 +253,7 @@ footer .next-btn {
      width: 650px;
      padding: 25px 30px;
      border-radius: 10px;
-     display: flex;
+     /* display: flex; */
      text-align: center;
      align-items: center;
      flex-direction: column;
@@ -250,28 +261,70 @@ footer .next-btn {
      
 }
 
-.icon {
+.result-box .icon {
      align-items: center;
      display: block;
      margin-bottom: 10px;
 }
-img {
+.result-box img {
      width: 100%;
      height: auto;
      justify-content: center;
     }
 
 .result-box .result-text {
-     font-size: 20px;
+     font-size: 35px;
      font-weight: 500;
 }
 
 .result-box .score-text {
      display: flex;
-     margin: 10px 0;
-     font-size: 18px;
+     text-align: center;
+     line-height: 100px;
+     /* justify-content: center;
+     align-items: center; */
+     margin: 0;
+     padding: 0;
+     height: 20vh;
+     width: 100vw;
+     font-size: 35px;
      font-weight: 500;
 }
+
+.result-box .buttons .restart{
+     margin: 0 5px;
+     height: 40px;
+     width: 100px;
+     border: 2px ridge blue;
+     background: rgb(43, 153, 226);
+     color: azure;
+     font-size: 16px;
+     border-radius: 10px;
+}
+
+.result-box .buttons .quit{
+     margin: 0 5px;
+     height: 40px;
+     width: 100px;
+     border: 2px ridge blue;
+     background: rgb(43, 153, 226);
+     color: azure;
+     font-size: 16px;
+     border-radius: 10px;
+}
+
+.result-box .buttons .restart:hover {
+     background-color: green;
+     cursor: pointer;
+}
+
+.result-box .buttons .quit:hover {
+     background-color: red;
+     cursor: pointer;
+}
+
+
+
 
 /* .question-box {
      text-align: center;
