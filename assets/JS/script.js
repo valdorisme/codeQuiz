@@ -17,53 +17,57 @@ var timerCount;
 var quizContent = [
     {
         question: "What does the abbreviation 'qd' stand for?",
-        choices: {
-            a: "Every other day",
-            b: "Everyday",
-        },
+        choices: [
+            {a: "Every other day"},
+            {b: "Everyday"},
+        ],
         answer: "b"
     },
     {
         question: "What does the abbreviation 'tid' stand for?",
-        choices: {
-            a: "Three times per day",
-            b: "Four times per day",
-        },
+        choices: [
+            {a: "Three times per day"},
+            {b: "Four times per day"}
+        ],
+            
         answer: "a"
     },
 
     {
         question: "What does the abbreviation 'ac' stand for?",
-        choices: {
-            a: "Before meals",
-            b: "After meals",
-        },
+        choices: [
+            {a: "Before meals"},
+            {b: "After meals"}
+        ],
         answer: "a"
     },
     {
         question: "What does the abbreviation 'qod' stand for?",
-        choices: {
-            a: "Everyday",
-            b: "Every other day",
-        },
+        choices: [
+            {a: "Everyday"},
+            {b: "Every other day"}
+        ],
         answer: "b"
     },
     {
         question: "What does the abbreviation 'MSO4' stand for?",
-        choices: {
-            a: "Magnesium Sulfate",
-            b: "Morphine Sulfate",
-        },
+        choices: [
+            {a: "Magnesium Sulfate"},
+            {b: "Morphine Sulfate"}
+        ],
         answer: "b"   
     }
 ]
 
+
+// Adding functionality to start button
 startButton.addEventListener('click', startGame)
 
 function startGame() {
     console.log('begin')
     startButton.style.display = "none"
     questionEl.classList.remove('hide')
+    nextQuestion()
 }
 
 // startGame()
@@ -71,7 +75,7 @@ function startGame() {
 
 function nextQuestion() {
     
-4}
+}
 
 
 function selectAnswer() {
