@@ -18,48 +18,43 @@ var isWin = false;
 var timer;
 var timerCount;
 
+// Questions and answers for quiz
 var quizContent = [
     {
         question: "What does the abbreviation 'qd' stand for?",
         choices: [
-            {a: "Every other day"},
-            {b: "Everyday"},
+            {text: "Every other day", correct: false},
+            {text: "Everyday", correct:true},
         ],
-        answer: "b"
     },
     {
         question: "What does the abbreviation 'tid' stand for?",
         choices: [
-            {a: "Three times per day"},
-            {b: "Four times per day"}
+            {text: "Three times per day", correct:true},
+            {text: "Four times per day", correct:false}, 
         ],
-            
-        answer: "a"
     },
 
     {
         question: "What does the abbreviation 'ac' stand for?",
         choices: [
-            {a: "Before meals"},
-            {b: "After meals"}
+            {text: "Before meals", correct:true},
+            {text: "After meals", correct:false}, 
         ],
-        answer: "a"
     },
     {
         question: "What does the abbreviation 'qod' stand for?",
         choices: [
-            {a: "Everyday"},
-            {b: "Every other day"}
+            {text: "Everyday", correct:false},
+            {text: "Every other day", correct:true}
         ],
-        answer: "b"
     },
     {
         question: "What does the abbreviation 'MSO4' stand for?",
         choices: [
-            {a: "Magnesium Sulfate"},
-            {b: "Morphine Sulfate"}
+            {text: "Magnesium Sulfate", correct:false},
+            {text: "Morphine Sulfate", correct:true}
         ],
-        answer: "b"   
     }
 ]
 
@@ -83,16 +78,20 @@ function nextQuestion() {
     showQuestion(shuffledQuestions[currentQuestion])
 }
 
-function showQuestion(question) {
-    questionEl.innerText = question.question
-    question.choices.forEach(choices => {
+// Function created to display quiz questions and answers
+function showQuestion(quizContent) {
+    questionEl.innerText = quizContent.question
+    quizContent.choices.forEach(answer => {
         const button = document.createElement('button')
-        button.innerText = choices.textContent
+        button.innerText = answer.text
         button.classList.add('btn')
-        if(answer) {
-            button.dataset.correct = answer
+        if(choices.correct) {
+            button.dataset.correct = choices.correct
         }
         button.addEventListener("click", selectAnswer)
+        choicesButtonEl.appendChild(button)
+
+        // console.log(quizContent.question)
     })
 }
 
