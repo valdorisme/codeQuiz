@@ -205,13 +205,10 @@ section .option-list #choices:last-child {
      margin-bottom: 0px;
 }
 
-.section .icon .excited {
-     border: 5px solid greenyellow;
-}
+/* .section .icon {
+     visibility: hidden;
+} */
 
-section .icon .sad {
-     border: 5px solid red;
-}
 
 #quiz-box footer {
      height: 60px;

@@ -1,12 +1,13 @@
 const startButton = document.getElementById('start-button');
+const nextButton = document.getElementById('next-btn');
 const questionContainerEl = document.getElementById('quiz-box')
 const questionEl = document.getElementById('question')
 const choicesButtonEl = document.getElementById('choices')
 
 // const shuffledQuestions, currentQuestion
 
-var win = document.querySelector(".excited");
-var lose = document.querySelector(".sad");
+var win = document.getElementById('excited');
+var lose = document.getElementById('sad');
 var timerElement = document.querySelector(".timer-sec");
 
 // var lastQuestionIndex = quizContent.length-1;
@@ -24,43 +25,47 @@ var quizContent = [
         question: "What does the abbreviation 'qd' stand for?",
         choices: [
             {text: "Every other day", correct: false},
-            {text: "Everyday", correct:true},
+            {text: "Everyday", correct: true},
         ],
     },
     {
         question: "What does the abbreviation 'tid' stand for?",
         choices: [
-            {text: "Three times per day", correct:true},
-            {text: "Four times per day", correct:false}, 
+            {text: "Three times per day", correct: true},
+            {text: "Four times per day", correct: false}, 
         ],
     },
 
     {
         question: "What does the abbreviation 'ac' stand for?",
         choices: [
-            {text: "Before meals", correct:true},
-            {text: "After meals", correct:false}, 
+            {text: "Before meals", correct: true},
+            {text: "After meals", correct: false}, 
         ],
     },
     {
         question: "What does the abbreviation 'qod' stand for?",
         choices: [
-            {text: "Everyday", correct:false},
-            {text: "Every other day", correct:true}
+            {text: "Everyday", correct: false},
+            {text: "Every other day", correct: true}
         ],
     },
     {
         question: "What does the abbreviation 'MSO4' stand for?",
         choices: [
-            {text: "Magnesium Sulfate", correct:false},
-            {text: "Morphine Sulfate", correct:true}
+            {text: "Magnesium Sulfate", correct: false},
+            {text: "Morphine Sulfate", correct: true}
         ],
     }
 ]
 
 
-// Adding functionality to start button
+// Adding functionality to start and next buttons
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestion++
+    nextQuestion()
+})
 
 function startGame() {
     console.log('begin')
@@ -75,6 +80,7 @@ function startGame() {
 
 
 function nextQuestion() {
+    resetState()
     showQuestion(shuffledQuestions[currentQuestion])
 }
 
@@ -95,12 +101,45 @@ function showQuestion(quizContent) {
     })
 }
 
-
-function selectAnswer() {
-
+function resetState() {
+    nextButton.classList.add('hide')
+    while (choicesButtonEl.firstChild) {
+        choicesButtonEl.removeChild
+        (choicesButtonEl.firstChild)
+    }
 }
 
 
+function selectAnswer(event) {
+    const selectedButton = event.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(choicesButtonEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQuestion +1) {
+        nextButton.classList.remove('hide')
+    } else {
+        startButton.innerText = "Restart"
+        startButton.classList.remove('hide')
+    }
+}
+
+// Setting images to be displayed depending on whether question was answered correctly or incorrectly
+function setStatusClass(correct) {
+    clearStatusClass()
+    if(correct) {
+        win.classList.remove('hide')
+    } else {
+        lose.classList.remove('hide')
+    }
+}
+
+function clearStatusClass() {
+    win.classList.add('hide')
+    lose.classList.add('hide')
+    
+}
 
 
 
