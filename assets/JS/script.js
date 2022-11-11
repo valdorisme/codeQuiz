@@ -4,6 +4,10 @@ const questionContainerEl = document.getElementById('quiz-box')
 const questionEl = document.getElementById('question')
 const choicesButtonEl = document.getElementById('choices')
 
+const wrongAnswer = document.getElementById('wrong-answer')
+const rightAnswer = document.getElementById('right-answer')
+const resultsPage = document.getElementById('result-box')
+
 // const shuffledQuestions, currentQuestion
 
 var win = document.getElementById('excited');
@@ -62,6 +66,7 @@ var quizContent = [
 
 // Adding functionality to start and next buttons
 startButton.addEventListener('click', startGame)
+
 nextButton.addEventListener('click', () => {
     currentQuestion++
     nextQuestion()
@@ -73,16 +78,57 @@ function startGame() {
     shuffledQuestions = quizContent.sort(() => Math.random() - .5)
     currentQuestion = 0
     questionContainerEl.classList.remove('hide')
+    isWin = false
+    timerCount = 10
+    startTimer()
     nextQuestion()
 }
 
 // startGame()
 
+// Game timer, countdown from 10 seconds
+function startTimer () {
+    timer = setInterval(function() {
+        timerCount--;
+        timerElement.textContent = timerCount;
+        if (timerCount >= 0) {
+            if (isWin && timerCount > 0) {
+                clearInterval(timer);
+                winGame();
+            }
+            
+        }
+        if (timerCount === 0) {
+            clearInterval(timer);
+            loseGame();
+        }
+    }, 1000);
+}
+
+
+function selectAnswer(event) {
+    const selectedButton = event.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(choicesButtonEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQuestion +1) {
+        nextButton.classList.remove('hide')
+    } else {
+        startButton.innerText = "Restart"
+        startButton.classList.remove('hide')
+    }
+}
 
 function nextQuestion() {
+    isWin = false
+    timerCount = 10
+    startTimer()
     resetState()
     showQuestion(shuffledQuestions[currentQuestion])
 }
+
 
 // Function created to display quiz questions and answers
 function showQuestion(quizContent) {
@@ -102,6 +148,10 @@ function showQuestion(quizContent) {
 }
 
 function resetState() {
+    clearStatusClass(document.body)
+    isWin = false
+    timerCount = 10
+    startTimer()
     nextButton.classList.add('hide')
     while (choicesButtonEl.firstChild) {
         choicesButtonEl.removeChild
@@ -109,21 +159,6 @@ function resetState() {
     }
 }
 
-
-function selectAnswer(event) {
-    const selectedButton = event.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(choicesButtonEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
-    })
-    if (shuffledQuestions.length > currentQuestion +1) {
-        nextButton.classList.remove('hide')
-    } else {
-        startButton.innerText = "Restart"
-        startButton.classList.remove('hide')
-    }
-}
 
 // Setting images to be displayed depending on whether question was answered correctly or incorrectly
 function setStatusClass(correct) {
@@ -141,8 +176,60 @@ function clearStatusClass() {
     
 }
 
+// Function created if user loses game
+function loseGame() {
+    wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
+    loseCounter++;
+    startButton.disabled = false;
+    // resultsPage.classList.remove('hide')
+    setLosses()
+}
+
+function setLosses() {
+    lose.textContent = loseCounter;
+    localStorage.setItem("loseCount", loseCounter);
+}
 
 
+// Function created if user wins game
+function winGame() {
+    rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
+    winCounter++;
+    startButton.disabled = false;
+    setWins()
+}
+
+
+function setWins() {
+    win.textContent = winCounter;
+    localStorage.setItem("winCount", winCounter);
+}
+
+
+
+// Functions created to save scores
+function getWins() {
+    var storedWins = localStorage.getItem("winCount");
+    
+    if (storedWins === null) {
+        winCounter = 0;
+    } else {
+        winCounter = storedWins;
+    }
+
+    win.textContent = winCounter
+}
+
+function getLosses() {
+    var storedLosses = localStorage.getItem("loseCount");
+    
+    if (storedLosses === null) {
+        loseCounter = 0;
+    } else {
+        loseCounter = storedLosses;
+    }
+    lose.textContent = loseCounter;
+}
 
 
 
@@ -159,67 +246,7 @@ function clearStatusClass() {
 // }
 
 
-function winGame() {
-    rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
-    winCounter++;
-    startButton.disabled = false;
-    setWins()
-}
 
-function loseGame() {
-    wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
-    loseCounter++;
-    startButton.disabled = false;
-    setLosses()
-}
 
-function startTimer () {
-    timer = setInterval(function() {
-        timerCount--;
-        timerElement.textContent = timerCount;
-        if (timerCount >= 0) {
-            if (isWin && timerCount > 0) {
-                clearInterval(timer);
-                winGame();
-            }
-            
-        }
-        if (timerCount === 0) {
-            clearInterval(timer);
-            loseGame();
-        }
-    }, 1000)
-}
 
-function setWins() {
-    win.textContent = winCounter;
-    localStorage.setItem("winCount", winCounter);
-}
 
-function setLosses() {
-    lose.textContent = loseCounter;
-    localStorage.setItem("loseCount", loseCounter);
-}
-
-// function getWins() {
-//     var storedWins = localStorage.getItem("winCount");
-    
-//     if (storedWins === null) {
-//         winCounter = 0;
-//     } else {
-//         winCounter = storedWins;
-//     }
-
-//     win.textContent = winCounter
-// }
-
-// function getLosses() {
-//     var storedLosses = localStorage.getItem("loseCount");
-    
-//     if (storedLosses === null) {
-//         loseCounter = 0;
-//     } else {
-//         loseCounter = storedLosses;
-//     }
-//     lose.textContent = loseCounter;
-// }
