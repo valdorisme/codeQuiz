@@ -21,7 +21,7 @@ var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
 var timer;
-var timerCount;
+var timerCount = 60;
 
 // Questions and answers for quiz
 var quizContent = [
@@ -79,7 +79,7 @@ function startGame() {
     currentQuestion = 0
     questionContainerEl.classList.remove('hide')
     isWin = false
-    timerCount = 10
+    // timerCount = 10
     startTimer()
     nextQuestion()
 }
@@ -93,7 +93,7 @@ function startTimer () {
         timerElement.textContent = timerCount;
         if (timerCount >= 0) {
             if (isWin && timerCount > 0) {
-                clearInterval(timer);
+                // clearInterval(timer);
                 winGame();
             }
             
@@ -118,13 +118,14 @@ function selectAnswer(event) {
     } else {
         startButton.innerText = "Restart"
         startButton.classList.remove('hide')
+        window.location.href="scorePage.html";
     }
 }
 
 function nextQuestion() {
     isWin = false
-    timerCount = 10
-    startTimer()
+    // timerCount = 10
+    // startTimer()
     resetState()
     showQuestion(shuffledQuestions[currentQuestion])
 }
@@ -150,8 +151,8 @@ function showQuestion(quizContent) {
 function resetState() {
     clearStatusClass(document.body)
     isWin = false
-    timerCount = 10
-    startTimer()
+    // timerCount = 10
+    // startTimer()
     nextButton.classList.add('hide')
     while (choicesButtonEl.firstChild) {
         choicesButtonEl.removeChild
