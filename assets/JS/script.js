@@ -26,40 +26,45 @@ var timerCount = 60;
 // Questions and answers for quiz
 var quizContent = [
     {
-        question: "What does the abbreviation 'qd' stand for?",
+        question: "What JavaScript method is used to change HTML content?",
         choices: [
-            {text: "Every other day", correct: false},
-            {text: "Everyday", correct: true},
+            "a. getElementById()",
+            "b. target.element"
         ],
+        answer: "a"
     },
     {
-        question: "What does the abbreviation 'tid' stand for?",
+        question: "True or False. Unlike Java, JavaScript does not force the developer to declare a data type",
         choices: [
-            {text: "Three times per day", correct: true},
-            {text: "Four times per day", correct: false}, 
+            "a. True",
+            "b. False"
         ],
+        answer: "a"
     },
 
     {
-        question: "What does the abbreviation 'ac' stand for?",
+        question: "What HTML tag creates a button?",
         choices: [
-            {text: "Before meals", correct: true},
-            {text: "After meals", correct: false}, 
+            "a. <class>; class",
+            "b. <button>; button"
         ],
+        answer: "b"
     },
     {
-        question: "What does the abbreviation 'qod' stand for?",
+        question: "A JavaScript function is defined with the _____ keyword, followed by a name, followed by parenthesis",
         choices: [
-            {text: "Everyday", correct: false},
-            {text: "Every other day", correct: true}
+            "a. function",
+            "b. var"
         ],
+        answer: "a"
     },
     {
-        question: "What does the abbreviation 'MSO4' stand for?",
+        question: "_____ is an object-oriented computer programming language commonly used to create interactive effects within web browsers",
         choices: [
-            {text: "Magnesium Sulfate", correct: false},
-            {text: "Morphine Sulfate", correct: true}
+            "a. JavaScript",
+            "b. CSS"
         ],
+        answer: "a"
     }
 ]
 
