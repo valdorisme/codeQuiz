@@ -29,8 +29,8 @@ body {
 }
 
 /* Adding stlying to instructions */
-.instructions {
-     display: none;
+#instructions {
+     /* display: none; */
      position: absolute;
      top: 800px;
      left: 50%;

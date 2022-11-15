@@ -1,27 +1,25 @@
-const startButton = document.getElementById('start-button');
+const startButton = document.getElementById('instructions');
 const nextButton = document.getElementById('next-btn');
 const questionContainerEl = document.getElementById('quiz-box')
 const questionEl = document.getElementById('question')
-const choicesButtonEl = document.getElementById('choices')
+const choicesButtonEl = document.getElementById('btn')
 
 const wrongAnswer = document.getElementById('wrong-answer')
 const rightAnswer = document.getElementById('right-answer')
 const resultsPage = document.getElementById('result-box')
-
-// const shuffledQuestions, currentQuestion
 
 var win = document.getElementById('excited');
 var lose = document.getElementById('sad');
 var timerElement = document.querySelector(".timer-sec");
 
 // var lastQuestionIndex = quizContent.length-1;
-// var runningQuestionIndex = 0;
+var runningQuestionIndex = 0;
 
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
 var timer;
-var timerCount = 60;
+var timerCount = 75;
 
 // Questions and answers for quiz
 var quizContent = [
@@ -84,14 +82,13 @@ function startGame() {
     currentQuestion = 0
     questionContainerEl.classList.remove('hide')
     isWin = false
-    // timerCount = 10
     startTimer()
     nextQuestion()
 }
 
 // startGame()
 
-// Game timer, countdown from 10 seconds
+// Game timer, countdown from 75 seconds to allow 15 seconds for each question
 function startTimer () {
     timer = setInterval(function() {
         timerCount--;

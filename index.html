@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Valerie Dorisme">
-    <title>Medical Abbreviations of Ancient Times</title>
+    <title>JavaScript Code Challenge</title>
     <link rel="stylesheet" href="assets\style.css">
 </head>
 
 <body>
     <!--Heading-->
-    <!-- <header id="quiz">
-        <h1>Medical Abbreviations of Ancient Times</h1>
-        <h2>How ancient are you?</h2>
+    <header id="quiz">
+        <h1>JavaScript Code Challenge</h1>
+        <h2>Are you brave enough?</h2>
         
-    </header> -->
+    </header>
 
     <!--Instructions-->        
-    <div class="instructions">
+    <div id="instructions">
         <div class="instruction-title">
             <span>Quiz Instructions</span>
         </div>
@@ -26,30 +26,28 @@
             <div class="info">~~~~~~~~~~~~~~~~</div>
             <div class="info">This is a multiple choice quiz.</div>
             <div class="info">There are five questions total.</div>
-            <div class="info">You will have <span>10 seconds</span> to answer each question.</div>
-            <div class="info">This quiz consists of medical abbreviations that are no longer used.</div>
+            <div class="info">You will have <span>75 seconds</span> to complete the quiz.</div>
+            <div class="info">This quiz will test your knowledge of JavaScript.</div>
             <div class="info">Click the "START" button to get started.</div>
             <div class="info">Best of luck!</div>
             <div class="info">~~~~~~~~~~~~~~~~</div>
+                 <!--Start Button-->
+            <button id="start-button">START</button>
         </div>
         <div class="buttons">
             <button class="quit">Exit Quiz</button>
             <button class="restart">Continue</button>
         </div>
-    </div>
-        
-    <div>
-        <!--Start Button-->
-        <button id="start-button">START</button>
+      
     </div>
 
 <!-- Quiz Box -->
 <div id="quiz-box" class="hide">
     <header>
-        <h1>Medical Abbreviations of Ancient Times</h1>
+        <h1>JavaScript Code Challenge</h1>
         <div class="timer">
             <div class="time-text">Seconds Remaining</div>
-            <div class="timer-sec">60</div>
+            <div class="timer-sec">75</div>
         </div>
     </header>
     <!-- Question and Answer section -->
@@ -80,31 +78,6 @@
         </div> -->
         <button id="next-btn" class="next-btn btn hide">Next Question</button>
     </footer>
-</div>
-
-
-<!-- Result Box -->
-<div id="result-box" class="hide">
-    <div id="right-answer">
-        <div class="icon"><img src="assets/Image/fireworks.jpg" alt="Fireworks"></div>
-        <div class="result-text">Congratulations! You've completed the quiz!</div>
-        <div class="score-text">You've scored: </div>
-        <div class="buttons">
-            <button class="restart">Play Again</button>
-            <button class="quit">Exit</button>
-        </div>
-    </div>
-
-    <div id="wrong-answer">
-        <div id="sad" class="hide"><img src="assets/Image/sad.jpg" alt="Sad emoji indicating wrong answer"></div>
-        <div class="score-text">You've scored: </div>
-        <div class="buttons">
-            <button class="restart">Play Again</button>
-            <button class="quit">Exit</button>
-
-    </div>
-        
-    
 </div>
 
 
