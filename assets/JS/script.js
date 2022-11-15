@@ -165,7 +165,7 @@ function resetState() {
 // Setting images to be displayed depending on whether question was answered answerly or inanswerly
 function setStatusClass() {
     clearStatusClass()
-    if(choices===answer) {
+    if(choices === answer) {
         win.classList.remove('hide')
         winCounter = winCounter+1
     } else {
