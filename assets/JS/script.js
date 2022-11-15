@@ -139,7 +139,7 @@ function showQuestion(quizContent) {
     quizContent.choices.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
-        button.classList.add('btn')
+        button.choicesButtonEl
         if(choices.answer) {
             button.dataset.answer = choices.answer
         }

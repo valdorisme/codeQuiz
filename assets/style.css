@@ -97,7 +97,7 @@ body {
      width: 550px;
      background: white;
      position: absolute;
-     top: 350px;
+     top: 450px;
      left: 50%;
      transform: translate(-50%, -50%);
      width: 540px;
@@ -180,7 +180,7 @@ body {
 }
 
 
-section .option-list #choices .btn {
+section .option-list #choices #btn {
      background: lightseagreen;
      font-size: 30px;
      border: 1px solid blue;
@@ -195,7 +195,7 @@ section .option-list #choices .btn {
      
 }
 
-section .option-list #choices .btn:hover {
+section .option-list #choices #btn:hover {
      color: white;
      background: blue;
      border-color: black;
