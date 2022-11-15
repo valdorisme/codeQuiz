@@ -103,6 +103,7 @@ function startTimer () {
             
         }
         if (timerCount === 0) {
+            // timerElement.textContent = "Time's Up!";
             clearInterval(timer);
             loseGame();
         }
@@ -162,9 +163,9 @@ function resetState() {
 
 
 // Setting images to be displayed depending on whether question was answered answerly or inanswerly
-function setStatusClass(event) {
+function setStatusClass() {
     clearStatusClass()
-    if(answer===answer) {
+    if(choices===answer) {
         win.classList.remove('hide')
         winCounter = winCounter+1
     } else {

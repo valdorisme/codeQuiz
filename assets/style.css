@@ -6,7 +6,7 @@ body {
 /*Start button styling*/
 #start-button {
      /* display: none; */
-     font-size: 50px;
+     font-size: 30px;
      background-color: rgb(43, 153, 226);
      color: white;
      border-radius: 25px;
@@ -18,10 +18,19 @@ body {
      align-items: center;
      margin: 0;
      padding: 0;
-     height: 25vh;
-     width: 25vw;
+     height: 15vh;
+     width: 15vw;
           
 }
+
+.quit {
+     display: none;
+}
+
+.restart {
+     display: none;
+}
+
 
 /* Button color change when hovered */
 #start-button:hover {
