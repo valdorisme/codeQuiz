@@ -103,10 +103,11 @@ function startTimer () {
             
         }
         if (timerCount === 0) {
-            // timerElement.textContent = "Time's Up!";
+            timerElement.textContent = "Time's Up!";
             clearInterval(timer);
             loseGame();
         }
+
     }, 1000);
 }
 
@@ -147,6 +148,8 @@ function showQuestion(quizContent) {
         button.addEventListener("click", selectAnswer)
         choicesButtonEl.appendChild(button)
 
+        // setStatusClass()
+
         // console.log(quizContent.question)
     })
 }
@@ -165,11 +168,11 @@ function resetState() {
 // Setting images to be displayed depending on whether question was answered answerly or inanswerly
 function setStatusClass() {
     clearStatusClass()
-    if(choices === answer) {
+    if(choices == answer) {
         win.classList.remove('hide')
         winCounter = winCounter+1
     } else {
-        timerCount = timerCount-10
+        // timerCount -=15
         lose.classList.remove('hide')
         loseCounter = loseCounter +1
     }
