@@ -70,7 +70,7 @@ var quizContent = [
 // Adding functionality to start and next buttons
 startButton.addEventListener('click', startGame)
 
-nextButton.addEventListener('click', () => {
+choicesButtonEl.addEventListener('click', () => {
     currentQuestion++
     nextQuestion()
 })
@@ -110,10 +110,10 @@ function startTimer () {
 
 function selectAnswer(event) {
     const selectedButton = event.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    const answer = selectedButton.dataset.answer
+    setStatusClass(document.body, answer)
     Array.from(choicesButtonEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
+        setStatusClass(button, button.dataset.answer)
     })
     if (shuffledQuestions.length > currentQuestion +1) {
         nextButton.classList.remove('hide')
@@ -140,8 +140,8 @@ function showQuestion(quizContent) {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
-        if(choices.correct) {
-            button.dataset.correct = choices.correct
+        if(choices.answer) {
+            button.dataset.answer = choices.answer
         }
         button.addEventListener("click", selectAnswer)
         choicesButtonEl.appendChild(button)
@@ -163,10 +163,10 @@ function resetState() {
 }
 
 
-// Setting images to be displayed depending on whether question was answered correctly or incorrectly
-function setStatusClass(correct) {
+// Setting images to be displayed depending on whether question was answered answerly or inanswerly
+function setStatusClass(answer) {
     clearStatusClass()
-    if(correct) {
+    if(answer) {
         win.classList.remove('hide')
     } else {
         lose.classList.remove('hide')

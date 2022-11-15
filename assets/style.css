@@ -32,7 +32,7 @@ body {
 #instructions {
      /* display: none; */
      position: absolute;
-     top: 800px;
+     top: 500px;
      left: 50%;
      transform: translate(-50%, -50%);
      width: 540px;
@@ -329,23 +329,23 @@ footer .next-btn {
      cursor: pointer;
 }
 
-/* h1 {
-     padding: 50px 50px 50px 50px;
-     font-size: 70px;
-     line-height: 70px;
+h1 {
+     padding: 20px 20px 20px 20px;
+     font-size: 40px;
+     line-height: 40px;
      text-align: center;
      background-color: black;
      color: rgb(43, 153, 226);
 }
 
 h2 {
-     padding: 25px 25px 25px 25px;
-     font-size: 30px;
-     line-height: 40px;
+     padding: 15px 15px 15px 15px;
+     font-size: 20px;
+     line-height: 10px;
      text-align: center;
      background-color: rgb(43, 153, 226);
      color: black;
-} */
+}
 
 .card-results {
      position: absolute;
