@@ -2,7 +2,9 @@ const startButton = document.getElementById('instructions');
 const nextButton = document.getElementById('next-btn');
 const questionContainerEl = document.getElementById('quiz-box')
 const questionEl = document.getElementById('question')
-const choicesButtonEl = document.getElementById('btn')
+const choicesButtonEl = document.getElementById('choices')
+const oneAnswer = document.querySelector('.btn1');
+const twoAnswer = document.querySelector('.btn2')
 
 const wrongAnswer = document.getElementById('wrong-answer')
 const rightAnswer = document.getElementById('right-answer')
@@ -116,18 +118,16 @@ function selectAnswer(event) {
         setStatusClass(button, button.dataset.answer)
     })
     if (shuffledQuestions.length > currentQuestion +1) {
-        nextButton.classList.remove('hide')
+        // nextButton.classList.remove('hide')
     } else {
-        startButton.innerText = "Restart"
-        startButton.classList.remove('hide')
+        // startButton.innerText = "Restart"
+        // startButton.classList.remove('hide')
         window.location.href="scorePage.html";
     }
 }
 
 function nextQuestion() {
     isWin = false
-    // timerCount = 10
-    // startTimer()
     resetState()
     showQuestion(shuffledQuestions[currentQuestion])
 }
@@ -136,10 +136,10 @@ function nextQuestion() {
 // Function created to display quiz questions and answers
 function showQuestion(quizContent) {
     questionEl.innerText = quizContent.question
-    quizContent.choices.forEach(answer => {
+    quizContent.choices.forEach(choices => {
         const button = document.createElement('button')
-        button.innerText = answer.text
-        button.choicesButtonEl
+        button.innerText = choices
+        button.classList.add('btn')
         if(choices.answer) {
             button.dataset.answer = choices.answer
         }
@@ -153,9 +153,7 @@ function showQuestion(quizContent) {
 function resetState() {
     clearStatusClass(document.body)
     isWin = false
-    // timerCount = 10
-    // startTimer()
-    nextButton.classList.add('hide')
+    // nextButton.classList.add('hide')
     while (choicesButtonEl.firstChild) {
         choicesButtonEl.removeChild
         (choicesButtonEl.firstChild)
@@ -164,12 +162,15 @@ function resetState() {
 
 
 // Setting images to be displayed depending on whether question was answered answerly or inanswerly
-function setStatusClass(answer) {
+function setStatusClass(event) {
     clearStatusClass()
-    if(answer) {
+    if(answer===answer) {
         win.classList.remove('hide')
+        winCounter = winCounter+1
     } else {
+        timerCount = timerCount-10
         lose.classList.remove('hide')
+        loseCounter = loseCounter +1
     }
 }
 
@@ -181,7 +182,7 @@ function clearStatusClass() {
 
 // Function created if user loses game
 function loseGame() {
-    wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
+    // wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
     loseCounter++;
     startButton.disabled = false;
     // resultsPage.classList.remove('hide')
@@ -196,7 +197,7 @@ function setLosses() {
 
 // Function created if user wins game
 function winGame() {
-    rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
+    // rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
     winCounter++;
     startButton.disabled = false;
     setWins()
@@ -219,7 +220,6 @@ function getWins() {
     } else {
         winCounter = storedWins;
     }
-
     win.textContent = winCounter
 }
 
@@ -234,19 +234,12 @@ function getLosses() {
     lose.textContent = loseCounter;
 }
 
+function init() {
+    getWins();
+    getLosses();
+}
 
-
-
-
-
-
-
-
-
-// function init() {
-//     getWins();
-//     getLosses();
-// }
+init()
 
 
 
