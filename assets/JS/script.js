@@ -185,7 +185,7 @@ function clearStatusClass() {
 function loseGame() {
     // wrongAnswer.textContent = "BETTER LUCK NEXT TIME, NEWBIE.";
     loseCounter++;
-    startButton.disabled = false;
+    // startButton.disabled = false;
     // resultsPage.classList.remove('hide')
     setLosses()
 }
@@ -200,7 +200,7 @@ function setLosses() {
 function winGame() {
     // rightAnswer.textContent = "CONGRATULATIONS, OH ANCIENT ONE!";
     winCounter++;
-    startButton.disabled = false;
+    // startButton.disabled = false;
     setWins()
 }
 
